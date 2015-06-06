@@ -26,6 +26,12 @@ r.request = function(page,fn){
         .set('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8')
         .end(function(err, res){
 
+            if(res.text === undefined){
+                console.log("REQUEST FAILED! URL:"+url);
+                fn();
+                return;
+            }
+
             var $ = cheerio.load(res.text,{
                 normalizeWhitespace: true,
                 xmlMode: true,
