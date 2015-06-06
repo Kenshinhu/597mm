@@ -7,10 +7,11 @@ var request = require('./request');
 var args = process.argv.slice(2);
 var clearArgs = process.argv.slice(3);
 
-var pages = args[0] || 1;
+var pages = parseInt(args[0]) || 1;
 var clear = clearArgs[0];
 
 var start = function(){
+    console.log("total:"+pages);
     request.toPage(pages,function(){
         process.exit(0);
     })

@@ -16,9 +16,11 @@ r.clearData = function(fn){
 
 r.request = function(page,fn){
 
-    var p = page;
+    var url = 'http://www.597mm.com/sell/index.php?page='+page;
+    console.log("REQUEST: ",url);
+
     request
-        .get('http://www.597mm.com/sell/index.php?page='+p)
+        .get(url)
         .charset('gbk')
         .set('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36')
         .set('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8')
